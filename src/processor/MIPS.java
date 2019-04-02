@@ -8,7 +8,10 @@ import processor.instruction.Parser;
 import processor.instruction.types.Ins;
 import processor.memory.InstructionsFile;
 import processor.memory.MemoryFile;
+import processor.memory.Register;
 import processor.memory.RegisterFile;
+
+import java.util.ArrayList;
 
 public class MIPS {
 
@@ -51,7 +54,7 @@ public class MIPS {
         }
 
         //alu controller working
-        aluControl.cycle(ins.getIns5_0(), control.isALUOp1(), control.isALUOp0());
+        aluControl.cycle(ins.getIns5_0Char(), control.isALUOp1(), control.isALUOp0());
 
         //alu working
         char[] aluSecondInput = new Multiplexer().cycle(readTwo, signExtended, control.isALUsrc());
@@ -69,6 +72,18 @@ public class MIPS {
         int newPointer = new Multiplexer().cycle(pc.getPointer(), temp,
                 control.isBranch() && alu.isZero());
         pc.setPointer(newPointer);
+    }
+
+    public void loadInstruction(ArrayList<Register> ins) {
+        instructionsFile.load(ins);
+    }
+
+    public void reset() {
+        pc.reset();
+        instructionsFile.reset();
+        alu.reset();
+        RegisterFile.getInstance().reset();
+        memoryFile.reset();
     }
 
 }

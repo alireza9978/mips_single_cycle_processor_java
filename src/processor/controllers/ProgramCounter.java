@@ -5,7 +5,7 @@ public class ProgramCounter {
     private int pointer;
 
     public ProgramCounter() {
-        pointer = 0;
+        reset();
     }
 
     public int getPointer() {
@@ -21,4 +21,9 @@ public class ProgramCounter {
     public void setPointer(int pointer) {
         this.pointer = pointer;
     }
+
+    public void reset(){
+        pointer = 0;
+    }
+
 }

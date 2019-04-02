@@ -6,8 +6,7 @@ public class Register {
 
     Register() {
         data = new char[32];
-        for (int i = 0; i < 32; i++)
-            data[i] = 0;
+        reset();
     }
 
     public char[] getData() {
@@ -16,5 +15,10 @@ public class Register {
 
     public void setData(char[] data) {
         this.data = data;
+    }
+
+    public void reset() {
+        for (int i = 0; i < 32; i++)
+            data[i] = 0;
     }
 }

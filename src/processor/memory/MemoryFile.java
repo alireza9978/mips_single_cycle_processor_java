@@ -6,6 +6,7 @@ public class MemoryFile {
     char[] readData;
 
     public MemoryFile() {
+        reset();
     }
 
     public void cycle(char[] address, char[] writeData, boolean memWrite, boolean memRead) {
@@ -15,4 +16,9 @@ public class MemoryFile {
     public char[] getReadData() {
         return readData;
     }
+
+    public void reset() {
+
+    }
+
 }

@@ -10,6 +10,7 @@ public class RegisterFile {
         datas = new Register[32];
         for (int i = 0; i < 32; i++)
             datas[i] = new Register();
+        reset();
     }
 
     public static RegisterFile getInstance() {
@@ -33,5 +34,9 @@ public class RegisterFile {
         return datas[read].getData();
     }
 
+    public void reset() {
+        for (int i = 0; i < 32; i++)
+            datas[i].reset();
+    }
 
 }

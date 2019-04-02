@@ -8,8 +8,7 @@ public class ALU {
     private char[] result;
 
     public ALU() {
-        zero = true;
-        result = new char[32];
+        reset();
     }
 
     public void cycle(char[] inputOne, char[] inputTwo, ALU_abilities work) {
@@ -61,4 +60,10 @@ public class ALU {
     public char[] getResult() {
         return result;
     }
+
+    public void reset(){
+        zero = true;
+        result = new char[32];
+    }
+
 }
