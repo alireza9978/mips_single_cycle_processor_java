@@ -22,13 +22,14 @@ public class MIPS {
     private ALUControl aluControl;
     private MemoryFile memoryFile;
 
-    public MIPS() {
+    public MIPS(int memorySize) {
         pc = new ProgramCounter();
         instructionsFile = new InstructionsFile();
         control = new Control();
         alu = new ALU();
         aluControl = new ALUControl();
-        memoryFile = new MemoryFile();
+        memoryFile = new MemoryFile(memorySize);
+        reset();
     }
 
     public void runNext() {
@@ -64,7 +65,7 @@ public class MIPS {
         memoryFile.cycle(alu.getResult(), readTwo, control.isMemWrite(), control.isMemRead());
 
         //write data
-        char[] writeData = new Multiplexer().cycle(memoryFile.getReadData(), alu.getResult(), control.isMemtoReg());
+        char[] writeData = new Multiplexer().cycle(alu.getResult(), memoryFile.getReadData(), control.isMemtoReg());
         RegisterFile.getInstance().write(writeRegister, writeData, control.isRegWrite());
 
         //set pc
@@ -84,6 +85,28 @@ public class MIPS {
         alu.reset();
         RegisterFile.getInstance().reset();
         memoryFile.reset();
+    }
+
+    public MemoryFile getMemoryFile() {
+        return memoryFile;
+    }
+
+    public void logInstruction() {
+        instructionsFile.log();
+    }
+
+    public void logMemory() {
+        memoryFile.log();
+    }
+
+    public void logRegisterFile() {
+        RegisterFile.getInstance().log();
+    }
+
+    public void log() {
+        logRegisterFile();
+        logInstruction();
+        logMemory();
     }
 
 }

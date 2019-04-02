@@ -52,12 +52,12 @@ public class Ins {
         ins15_11Char = temp;
 
         temp = new char[5];
-        System.arraycopy(binary, 21, temp, 0, 5);//22 to 27
+        System.arraycopy(binary, 21, temp, 0, 5);//22 to 26
         ins10_6 = Parser.convert(temp);
         ins10_6Char = temp;
 
-        temp = new char[5];
-        System.arraycopy(binary, 27, temp, 0, 5);//28 to 32
+        temp = new char[6];
+        System.arraycopy(binary, 26, temp, 0, 6);//27 to 32
         ins5_0 = Parser.convert(temp);
         ins5_0Char = temp;
 

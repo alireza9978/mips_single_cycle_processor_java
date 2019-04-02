@@ -22,4 +22,11 @@ public class InstructionsFile {
         registers = new ArrayList<>();
     }
 
+    public void log() {
+        System.out.println("Instruction file");
+        for (Register register : registers) {
+            System.out.println(register.toString());
+        }
+    }
+
 }

@@ -40,7 +40,7 @@ public abstract class Parser {
 
     public static int convert(char[] binary) {
         int ans = 0;
-        for (int i = binary.length; i > -1; i--) {
+        for (int i = binary.length - 1; i > -1; i--) {
             if (binary[i] == 1) {
                 ans += (2 * i);
             }
@@ -62,6 +62,32 @@ public abstract class Parser {
         for (int j = 31; j >= i; i--) {
             container[j] = 0;
         }
-        return container;
+        char[] reverse = new char[container.length];
+        for (int k = 0, h = reverse.length - 1; k < reverse.length; k++, h--) {
+            reverse[k] = container[h];
+        }
+        return reverse;
     }
+
+    public static char[] convertToBinarySize(int no, int size) {
+        char[] container = new char[size];
+        int i = 0;
+        while (no > 0) {
+            if (i > size - 1) {
+                break;
+            }
+            container[i] = (char) (no % 2);
+            i++;
+            no = no / 2;
+        }
+        for (int j = size - 1; j >= i; j--) {
+            container[j] = 0;
+        }
+        char[] reverse = new char[size];
+        for (int k = 0, h = reverse.length - 1; k < reverse.length; k++, h--) {
+            reverse[k] = container[h];
+        }
+        return reverse;
+    }
+
 }

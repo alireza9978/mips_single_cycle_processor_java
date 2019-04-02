@@ -17,7 +17,9 @@ public class RegisterFile {
         if (instance == null) {
             instance = new RegisterFile();
             return instance;
-        } else return instance;
+        } else {
+            return instance;
+        }
     }
 
     public Register getData(int index) {
@@ -37,6 +39,13 @@ public class RegisterFile {
     public void reset() {
         for (int i = 0; i < 32; i++)
             datas[i].reset();
+    }
+
+    public void log() {
+        System.out.println("RegisterFile " + datas.length);
+        for (Register register : datas) {
+            System.out.println(register.toString());
+        }
     }
 
 }

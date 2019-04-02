@@ -27,7 +27,7 @@ public class ALUControl {
                 case 2:
                     work = ALU_abilities.Sub;
                 case 4:
-                    work = ALU_abilities.Add;
+                    work = ALU_abilities.And;
                 case 5:
                     work = ALU_abilities.Or;
                 case 10:
