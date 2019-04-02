@@ -1,4 +1,4 @@
 package processor.controllers;
 
-public class ProgrammCounter {
+public class ALUControl {
 }
