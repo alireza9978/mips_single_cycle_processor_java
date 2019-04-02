@@ -48,4 +48,20 @@ public abstract class Parser {
         return ans;
     }
 
+    public static char[] convertToBinary(int no) {
+        char[] container = new char[32];
+        int i = 0;
+        while (no > 0) {
+            if (i > 31) {
+                break;
+            }
+            container[i] = (char) (no % 2);
+            i++;
+            no = no / 2;
+        }
+        for (int j = 31; j >= i; i--) {
+            container[j] = 0;
+        }
+        return container;
+    }
 }
