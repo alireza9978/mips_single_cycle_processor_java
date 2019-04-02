@@ -22,4 +22,16 @@ public class RegisterFile {
     public Register getData(int index) {
         return datas[index];
     }
+
+    public void write(int index, char[] writeData, boolean regWrite) {
+        if (regWrite) {
+            datas[index].setData(writeData);
+        }
+    }
+
+    public char[] read(int read) {
+        return datas[read].getData();
+    }
+
+
 }

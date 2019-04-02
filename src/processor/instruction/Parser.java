@@ -1,22 +1,21 @@
 package processor.instruction;
 
-import processor.instruction.types.*;
-import processor.instruction.types.I.I_type;
-import processor.instruction.types.J.J_type;
-import processor.instruction.types.R.R_type;
+import processor.instruction.types.Ins;
+import processor.instruction.types.Instructions_type;
 
 public abstract class Parser {
 
     public static Ins parse(char[] binary) {
+        Ins ins = null;
         switch (getKind(binary)) {
             case R_type:
-                return new R_type(binary);
+                return new Ins(binary, Instructions_type.R_type);
             case J_type:
-                return new J_type(binary);
+                return new Ins(binary, Instructions_type.J_type);
             case I_type:
-                return new I_type(binary);
+                return new Ins(binary, Instructions_type.I_type);
         }
-        return null;
+        return ins;
     }
 
     public static Instructions_type getKind(char[] binary) {
