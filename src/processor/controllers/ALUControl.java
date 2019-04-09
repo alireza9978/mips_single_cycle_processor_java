@@ -24,12 +24,19 @@ public class ALUControl {
             switch (need) {
                 case 0:
                     work = ALU_abilities.Add;
+                    break;
                 case 2:
                     work = ALU_abilities.Sub;
+                    break;
+
                 case 4:
                     work = ALU_abilities.And;
+                    break;
+
                 case 5:
                     work = ALU_abilities.Or;
+                    break;
+
                 case 10:
                     work = ALU_abilities.Slt;
 

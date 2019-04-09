@@ -70,4 +70,19 @@ public class Control {
     public boolean isRegWrite() {
         return RegWrite;
     }
+
+    @Override
+    public String toString() {
+        return "Control{" +
+                "RegDest=" + RegDest +
+                ", Branch=" + Branch +
+                ", MemRead=" + MemRead +
+                ", MemtoReg=" + MemtoReg +
+                ", ALUOp1=" + ALUOp1 +
+                ", ALUOp0=" + ALUOp0 +
+                ", MemWrite=" + MemWrite +
+                ", ALUsrc=" + ALUsrc +
+                ", RegWrite=" + RegWrite +
+                '}';
+    }
 }

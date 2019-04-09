@@ -2,6 +2,8 @@ package processor.instruction.types;
 
 import processor.instruction.Parser;
 
+import java.util.Arrays;
+
 public class Ins {
 
     private char[] binary;
@@ -134,5 +136,28 @@ public class Ins {
 
     public char[] getIns15_0Char() {
         return ins15_0Char;
+    }
+
+    @Override
+    public String toString() {
+        return "Ins{" +
+                "binary=" + Arrays.toString(binary) +
+                ", op=" + Arrays.toString(op) +
+                ", type=" + type +
+                ", ins31_26=" + ins31_26 +
+                ", ins25_21=" + ins25_21 +
+                ", ins20_16=" + ins20_16 +
+                ", ins15_11=" + ins15_11 +
+                ", ins10_6=" + ins10_6 +
+                ", ins5_0=" + ins5_0 +
+                ", ins15_0=" + ins15_0 +
+                ", ins31_26Char=" + Arrays.toString(ins31_26Char) +
+                ", ins25_21Char=" + Arrays.toString(ins25_21Char) +
+                ", ins20_16Char=" + Arrays.toString(ins20_16Char) +
+                ", ins15_11Char=" + Arrays.toString(ins15_11Char) +
+                ", ins10_6Char=" + Arrays.toString(ins10_6Char) +
+                ", ins5_0Char=" + Arrays.toString(ins5_0Char) +
+                ", ins15_0Char=" + Arrays.toString(ins15_0Char) +
+                '}';
     }
 }

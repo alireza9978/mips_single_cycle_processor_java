@@ -2,6 +2,7 @@ package processor.instruction;
 
 import processor.instruction.types.Ins;
 import processor.instruction.types.Instructions_type;
+import processor.memory.Register;
 
 public abstract class Parser {
 
@@ -40,9 +41,10 @@ public abstract class Parser {
 
     public static int convert(char[] binary) {
         int ans = 0;
-        for (int i = binary.length - 1; i > -1; i--) {
-            if (binary[i] == 1) {
-                ans += (2 * i);
+        char[] data = Register.reverse(binary);
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == 1) {
+                ans += (Math.pow(2 , (i)));
             }
         }
         return ans;

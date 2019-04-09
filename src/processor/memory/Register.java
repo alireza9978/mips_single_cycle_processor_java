@@ -29,4 +29,15 @@ public class Register {
             temp.append((int) c);
         return temp.toString();
     }
+
+    public static char[] reverse(char[] data) {
+        char[] temp = new char[data.length];
+        int j = data.length-1;
+        for (int i = 0; i < data.length; i++) {
+            temp[j] = data[i];
+            j--;
+        }
+        return temp;
+    }
+
 }
