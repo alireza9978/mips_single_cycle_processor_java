@@ -52,6 +52,7 @@ public class MIPS {
         control.load(ins.getOp());
 //        logControl();
         int writeRegister = new Multiplexer().cycle(ins.getIns20_16(), ins.getIns15_11(), control.isRegDest());
+//        System.out.println("write Reg = " + writeRegister);
 
         //read from register file
         char[] readOne = RegisterFile.getInstance().read(ins.getIns25_21());
@@ -69,7 +70,7 @@ public class MIPS {
         }
 
         //alu controller working
-        aluControl.cycle(ins.getIns5_0Char(),  control.isALUOp0(),control.isALUOp1());
+        aluControl.cycle(ins.getIns5_0Char(), control.isALUOp0(), control.isALUOp1());
 
         //alu working
         char[] aluSecondInput = new Multiplexer().cycle(readTwo, signExtended, control.isALUsrc());

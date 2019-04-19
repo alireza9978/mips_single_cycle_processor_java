@@ -49,6 +49,8 @@ public class ALU {
                     }
                 }
                 break;
+            default:
+                System.err.println("ALU ERROR");
         }
         zero = Parser.convert(result) == 0;
     }
@@ -61,7 +63,7 @@ public class ALU {
         return result;
     }
 
-    public void reset(){
+    public void reset() {
         zero = true;
         result = new char[32];
     }

@@ -14,7 +14,8 @@ public class Register {
     }
 
     public void setData(char[] data) {
-        this.data = data;
+        System.arraycopy(data, 0, this.data, 0, data.length);
+//        this.data = data;
     }
 
     public void reset() {

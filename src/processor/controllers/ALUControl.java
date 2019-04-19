@@ -3,6 +3,8 @@ package processor.controllers;
 import processor.ALU.ALU_abilities;
 import processor.instruction.Parser;
 
+import javax.xml.ws.handler.LogicalHandler;
+
 public class ALUControl {
 
     private ALU_abilities work;
@@ -39,7 +41,14 @@ public class ALUControl {
 
                 case 10:
                     work = ALU_abilities.Slt;
+                    break;
 
+                default:
+                    System.err.println("ALU controller Error");
+                    for (char c : ins)
+                        System.err.print("" + c);
+                    System.err.println("up = " + inputUp);
+                    System.err.println("low = " + inputLow);
             }
         }
     }

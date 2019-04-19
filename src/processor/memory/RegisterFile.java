@@ -28,6 +28,11 @@ public class RegisterFile {
 
     public void write(int index, char[] writeData, boolean regWrite) {
         if (regWrite) {
+//            System.err.print("write in " + index  + " data ");
+//            for (char c : writeData){
+//                System.err.print("" + c);
+//            }
+//            System.err.println(" ");
             datas[index].setData(writeData);
         }
     }
